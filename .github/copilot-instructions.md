@@ -1,7 +1,9 @@
 # ZoneGuard — Copilot Instructions
 
 ## What This Project Is
-Safety-first MVP: detect humans entering red zones via RTSP cameras using YOLOv10, trigger real-time alerts over WebSocket, and let operators review/resolve incidents through a React UI.
+Safety-first MVP: detect **live humans** entering red zones via RTSP cameras using YOLOv10 + Lucas-Kanade motion-vector liveness analysis, trigger real-time alerts over WebSocket, and let operators review/resolve incidents through a React UI. Static objects, screens, and photos are rejected by the liveness stage before any alert is raised.
+
+Admins define danger zones by drawing **closed polygons** on a canvas that overlays the live camera feed — each vertex is stored as a normalized (0–1) coordinate so zones scale correctly regardless of stream resolution.
 
 ---
 

@@ -1,5 +1,10 @@
 # ZoneGuard — Red Zone Monitoring & Alert System
 
+## What This Project Is
+Safety-first MVP: detect **live humans** entering red zones via RTSP cameras using YOLOv10 + Lucas-Kanade motion-vector liveness analysis, trigger real-time alerts over WebSocket, and let operators review/resolve incidents through a React UI. Static objects, screens, and photos are rejected by the liveness stage before any alert is raised.
+
+Admins define danger zones by drawing **closed polygons** on a canvas that overlays the live camera feed — each vertex is stored as a normalized (0–1) coordinate so zones scale correctly regardless of stream resolution.
+
 ## Quick Start (Development)
 
 ### Backend
@@ -109,7 +114,7 @@ Only `True` detections proceed to red-zone evaluation and incident creation.
 ## Environment Variables (backend/.env)
 
 | Variable | Default | Description | Tuning range | stricter toward |
-|--|---|---|---|---|
+|---|---|---|---|---|
 | DATABASE_URL | `sqlite+aiosqlite:///./…` | Async DB connection string | — | — |
 | YOLO_MODEL_PATH | `weights/yolov10m.pt` | Path to YOLO weights file | — | — |
 | YOLO_CONFIDENCE_THRESHOLD | `0.65` | Min YOLO detection score | 0.5 – 0.95 | higher |
