@@ -1,4 +1,4 @@
-# ZoneGuard — Red Zone Monitor & Alert System
+# ZoneGuard — Red Zone Monitoring & Alert System
 
 ## Quick Start (Development)
 
