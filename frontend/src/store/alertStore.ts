@@ -21,7 +21,9 @@ export const useAlertStore = create<AlertStore>((set, get) => ({
   connected: false,
 
   connect() {
-    const ws = new WebSocket(`ws://localhost:8000/api/alerts/ws`);
+    const apiBase = import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8000";
+    const wsBase = apiBase.replace(/^http/, "ws");
+    const ws = new WebSocket(`${wsBase}/api/alerts/ws`);
 
     ws.onopen = () => set({ connected: true });
 
